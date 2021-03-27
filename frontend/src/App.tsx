@@ -2,6 +2,10 @@ import * as React from "react";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 
 import Styles from "./AppStyles";
+import About from "./components/pages/about/About";
+import Earn from "./components/pages/earn/Earn";
+import Events from "./components/pages/events/Events";
+import Host from "./components/pages/host/Host";
 import Login from "./components/pages/login/Login";
 
 type State = {};
@@ -18,7 +22,11 @@ export default class App extends React.Component<Props, State> {
             <BrowserRouter>
                 <Switch>
                     {/* Paths */}
-                    <Route path="/"     component={ Login } exact/>
+                    <Route path="/"                     component={ Login }         exact/>
+                    <Route path="/events"               component={ Events }        exact/>
+                    <Route path="/earn"                 component={ Earn }          exact/>
+                    <Route path="/host"                 component={ Host }          exact/>
+                    <Route path="/about"                component={ About }         exact/>
                 </Switch>
             </BrowserRouter>
         )
