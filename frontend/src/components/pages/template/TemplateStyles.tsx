@@ -14,7 +14,8 @@ const Styles = {
         border-bottom: 1px solid #dcdcdc;
     `,
     navPanel: css`
-        display: inline-block;
+        display: table;
+        margin: 0 auto;
     `,
     linkStyles: css`
         &, &:visited, &:hover, &:active {
@@ -41,6 +42,9 @@ const Styles = {
             background: black;
             color: white;
         }
+    `,
+    headerStyles: css`
+
     `
 };
 
