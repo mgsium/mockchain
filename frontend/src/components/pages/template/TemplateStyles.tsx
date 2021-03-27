@@ -45,6 +45,20 @@ const Styles = {
     `,
     headerStyles: css`
 
+    `,
+    userPanel: css`
+        padding: 10px;
+        font-family: Josefin Sans, sans-serif;
+        font-size: 20pt;
+        border: 1px solid #DCDCDC;
+        padding-top: 15px;
+        border-radius: .7rem;
+        transition: all .25s;
+
+        &:hover {
+            cursor: pointer;
+            background: whitesmoke;
+        }
     `
 };
 

@@ -24,6 +24,12 @@ const Styles = {
         }
         
         border-radius: .7rem;
+    `,
+    linkStyles: css`
+        &, &:visited, &:hover, &:active {
+            color: #333;
+            text-decoration: none;
+        }
     `
 };
 
