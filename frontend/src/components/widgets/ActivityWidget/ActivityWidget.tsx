@@ -6,7 +6,8 @@ import Styles from "./ActivityWidgetStyles";
 type Props = {
     id: string,
     name: string,
-    creatorId: string
+    creatorId: string,
+    description: string
 };
 type State = {};
 
@@ -17,7 +18,7 @@ export default class ActivityWidget extends React.Component<Props, State> {
             <div className={cx( Styles.widget )}>
                 <br/><br/><br/>
                 <h1 style={{ fontWeight: "bold", textAlign: "center", marginBottom: 10, fontSize: "40pt" }}>{this.props.name}</h1>
-                <h4 style={{ textAlign: "center", fontFamily: "Inter, sans-serif", color: "whitesmoke" }}>By Tyler Durden</h4>
+                <h4 style={{ textAlign: "center", fontFamily: "Inter, sans-serif", color: "whitesmoke" }}>{this.props.description}</h4>
                 <br/><br/><br/>
             </div>
         )

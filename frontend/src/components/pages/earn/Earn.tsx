@@ -68,11 +68,15 @@ export default class Earn extends React.Component<Props, State> {
                                 <br/>
                                 {
                                     this.state.activities.map(a => 
-                                        <ActivityWidget
-                                            id={a.id.S}
-                                            name={a.name.S}
-                                            creatorId={a.creatorId.S}
-                                        />
+                                        <>
+                                            <ActivityWidget
+                                                id={a.id.S}
+                                                name={a.name.S}
+                                                creatorId={a.creatorId.S}
+                                                description={a.description.S}
+                                            />
+                                            <br/>
+                                        </>
                                     )
                                 }
                             </Col>

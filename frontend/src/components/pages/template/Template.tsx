@@ -50,11 +50,12 @@ export default class Template extends React.Component<Props, State> {
                     <div style={{ display: "inline-block", width: "calc(100vw - 500px)" }}>
                         <div className={cx( Styles.navPanel )}>
                             {/** FOR LATER
-                             * <NavBtn to="/about">About</NavBtn>
+                             * 
                             * */}
                             <NavBtn to="/events">Events</NavBtn>
                             <NavBtn to="/earn">Earn <span><strong>MTC</strong></span></NavBtn>
                             <NavBtn to="/host">Host an Event</NavBtn>
+                            <NavBtn to="/about"><span style={{ color: "#666" }}>About</span></NavBtn>
                         </div>
                     </div>
                     <span style={{ float: "right" }} onClick={this.openNetlifyIdentity}>

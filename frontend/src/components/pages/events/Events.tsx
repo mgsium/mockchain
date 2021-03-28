@@ -1,8 +1,10 @@
 import React from "react";
 
 import { cx } from "emotion";
+import CStyles from "../../ComponentStyles";
 import Styles from "./EventsStyles";
 import Template from "../template/Template";
+import Config from "../../../helper/config";
 
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
@@ -18,9 +20,19 @@ import EventWidgetSkeleton from "../../widgets/EventWidget/EventWidgetSkeleton";
 import EventWidget from "../../widgets/EventWidget/EventWidget";
 
 type Props = {};
-type State = {};
+type State = {
+    events: any[]
+};
 
 export default class Events extends React.Component<Props, State> {
+
+    constructor(props: Props) {
+        super(props);
+
+        this.state = {
+            events: []
+        }
+    }
 
     componentDidMount() {
         netlifyIdentity.init();
@@ -31,6 +43,25 @@ export default class Events extends React.Component<Props, State> {
         netlifyIdentity.on("logout", () => {
             $("#go-home").trigger("click");
         });
+
+        this.getEvents();
+
+        $(window).on("scroll", () => {
+            var scrollHeight = $(document).height();
+            var scrollPos = $(window).height() + $(window).scrollTop();
+            // @ts-ignore
+            if ((scrollHeight as number - Math.floor(scrollPos)) / scrollHeight as number == 0) {
+                this.getEvents();
+            }
+        });
+    }
+
+    async getEvents() {
+        // Fetch Activities
+        const res = await fetch(`${Config.api_endpoint}/event/all`);
+        const data = await res.json();
+        console.log(data);
+        this.setState({ events: this.state.events.concat(data) });
     }
 
     render() {
@@ -44,9 +75,9 @@ export default class Events extends React.Component<Props, State> {
                                 <h1>My Events</h1>
                             </Col>
                             <Col>
-                                <span style={{ float: "right" }}>
+                                <Link to="/host" className={cx( CStyles.linkStyles )} style={{ float: "right" }}>
                                     <PlusBtn/>
-                                </span>
+                                </Link>
                             </Col>
                         </Row>
                         {/* My Events Row */}
@@ -66,15 +97,22 @@ export default class Events extends React.Component<Props, State> {
                         {/* Public Events Row */}
                         <Row>
                             <Col>
-                                <EventWidget
-                                    id="test"
-                                    header="Introduction to Organic Chemistry"
-                                    description="Some Random Event about Stuff"
-                                    entryFee={6.03}
-                                    startTimestamp={(new Date()).toISOString()}
-                                    endTimestamp={(new Date()).toISOString()}
-                                    userId="Some Random User"
-                                />
+                                {
+                                    this.state.events.map(e =>
+                                        <> 
+                                            <EventWidget
+                                                id={e.id.S}
+                                                header={e.name.S}
+                                                description={e.description.S}
+                                                entryFee={e.entryFee.S}
+                                                startTimestamp={(new Date()).toISOString()}
+                                                endTimestamp={(new Date()).toISOString()}
+                                                userId={e.userId.S}
+                                            />
+                                            <br/>
+                                        </>
+                                    )
+                                }
                                 <br/>
                                 <EventWidgetSkeleton/>
                             </Col>

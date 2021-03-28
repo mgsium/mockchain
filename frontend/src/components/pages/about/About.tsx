@@ -1,6 +1,8 @@
 import React from "react";
 
 import Container from "react-bootstrap/Container";
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
 
 import { cx } from "emotion";
 import Styles from "./AboutStyles";
@@ -33,7 +35,12 @@ export default class About extends React.Component<Props, State> {
             <Template>
                 <CommonLayout>
                     <Container fluid>
-
+                        {/* Header Row (1) */}
+                        <Row>
+                            <Col>
+                                <h1>About</h1>
+                            </Col>
+                        </Row>
                     </Container>
                 </CommonLayout>
                 <Link  to="/" hidden>
