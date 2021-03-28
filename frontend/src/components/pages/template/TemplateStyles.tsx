@@ -12,6 +12,7 @@ const Styles = {
         padding: 30px;
         padding-bottom: 20px;
         border-bottom: 1px solid #dcdcdc;
+        background: whitesmoke;
     `,
     navPanel: css`
         display: table;
