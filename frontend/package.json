@@ -22,12 +22,12 @@
     "css-loader": "^5.2.0",
     "jquery": "^3.6.0",
     "netlify-identity-widget": "^1.9.1",
+    "particles": "^0.3.1",
     "react-feather": "^2.0.9",
     "react-loading-skeleton": "^2.2.0",
-    "react-tsparticles": "^1.24.2",
     "source-map-loader": "^1.0.0",
     "style-loader": "^2.0.0",
-    "tsparticles": "^1.24.1",
+    "tsparticles": "^1.24.2",
     "uuid": "^8.3.2"
   },
   "devDependencies": {
@@ -46,6 +46,7 @@
     "react-bootstrap": "^1.2.2",
     "react-dom": "^16.14.0",
     "react-router-dom": "^5.2.0",
+    "react-tsparticles": "^1.24.3",
     "typescript": "^3.9.5",
     "webfontloader": "^1.6.28",
     "webpack": "^4.43.0",

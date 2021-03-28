@@ -63,9 +63,6 @@ export default class Template extends React.Component<Props, State> {
                         </Link>
                         <div style={{ display: "inline-block", width: "calc(100vw - 500px)" }}>
                             <div className={cx( Styles.navPanel )}>
-                                {/** FOR LATER
-                                 * 
-                                * */}
                                 <NavBtn to="/events">Events</NavBtn>
                                 <NavBtn to="/earn">Earn <span><strong>MTC</strong></span></NavBtn>
                                 <NavBtn to="/host">Host an Event</NavBtn>
@@ -82,6 +79,7 @@ export default class Template extends React.Component<Props, State> {
                             }
                         </span>
                     </div>
+                    { this.props.children }
                 </div>
             </div>
         )
