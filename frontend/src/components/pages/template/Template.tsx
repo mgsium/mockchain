@@ -12,7 +12,7 @@ import CStyles from "../../ComponentStyles";
 
 import Particles from "react-tsparticles";
 import "./Particles/particlesBg.css";
-import particlesCurr from "./Particles/particlesjs-config.json";
+import particlesCurr from "./Particles/particlesjs-config (1).json";
 import { ISourceOptions } from 'tsparticles';
 
 type Props = {};
@@ -50,7 +50,11 @@ export default class Template extends React.Component<Props, State> {
         return (
             <div>
                 <div>
-                    {/**<Particles options={particlesCurr as ISourceOptions}/>**/}
+                    {
+                        (window.location.pathname == "/") ? (
+                            <Particles options={particlesCurr as ISourceOptions}/>
+                        ) : null
+                    }
                 </div>
                 <div className={cx( Styles.globalStyles )}>
                     <div className={cx( Styles.navbarStyles )}>
