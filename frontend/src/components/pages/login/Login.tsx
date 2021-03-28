@@ -16,7 +16,7 @@ export default class Login extends React.Component<Props, State> {
         return (
             <Template>
                 {/** div for particles.js */}
-                <div style={{ width: "100%", height: "calc(100vh - 117px)", background: "whitesmoke" }}>
+                <div style={{ width: "100%", height: "calc(100vh - 117px)" }}>
                     <div style={{ display: "table", marginLeft: "auto", marginRight: "auto", height: "100%" }}>
                         <div style={{ display: "table-cell", verticalAlign: "middle" }}>
                             <div className={cx( Styles.loginPrompt)}>
