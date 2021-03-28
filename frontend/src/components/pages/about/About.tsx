@@ -71,8 +71,10 @@ export default class About extends React.Component<Props, State> {
                                     <br/><br/>
                                     <SectionHeader>As a student:</SectionHeader>
                                     Browse Mockchain. Look for a lesson or workshop on a topic planned that interests you. There will be a small entry fee, but upon paying this, you will now have access to that lesson when it goes live.<br/>
-                                    The good part is, your entry fee will be directly payed towards the teacher of the lesson.<br/>
-                                    <br/>
+                                    The good part is, your entry fee will be directly payed towards the teacher of the lesson.<br/><br/>
+                                    <h3>What happens when I run out of MTC?</h3>
+                                    Head to the "Earn MTC" section, and engage with a variety of rotating educational activities. Your effort and engagement in these static events will be rewarded with MTC.
+                                    <br/><br/>
                                     <SectionHeader>As a teacher:</SectionHeader>
                                     As a teacher, you have knowledge to share, but you want compensation for this effort. To host on Mockchain, press "Host an Event" at the top. Fill in the details of your planned lesson, as well as an entry fee you feel is fair
                                     to the effort put into your lesson, and simply submit.<br/>
