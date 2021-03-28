@@ -13,13 +13,25 @@ import { Link } from "react-router-dom";
 
 import $ from "jquery";
 import CommonLayout from "../template/commonLayout/CommonLayout";
+import Config from "../../../helper/config";
+import ActivityWidget from "../../widgets/ActivityWidget/ActivityWidget";
 
 type Props = {};
-type State = {};
+type State = {
+    activities: any[]
+};
 
 export default class Earn extends React.Component<Props, State> {
 
-    componentDidMount() {
+    constructor(props: Props) {
+        super(props);
+
+        this.state = {
+            activities: []
+        }
+    }
+
+    async componentDidMount() {
         netlifyIdentity.init();
 
         const user = netlifyIdentity.currentUser();
@@ -28,6 +40,11 @@ export default class Earn extends React.Component<Props, State> {
         netlifyIdentity.on("logout", () => {
             $("#go-home").trigger("click");
         });
+
+        // Fetch Activities
+        const res = await fetch(`${Config.api_endpoint}/activity/all`);
+        const data = await res.json();
+        this.setState({ activities: data });
     }
 
     render() {
@@ -48,6 +65,15 @@ export default class Earn extends React.Component<Props, State> {
                                     Need more <strong>MTC</strong>? You can earn more by completeing these seasonal activities!
                                 </p>
                                 <br/>
+                                {
+                                    this.state.activities.map(a => 
+                                        <ActivityWidget
+                                            id={a.id.S}
+                                            name={a.name.S}
+                                            creatorId={a.creatorId.S}
+                                        />
+                                    )
+                                }
                             </Col>
                         </Row>
                     </Container>
