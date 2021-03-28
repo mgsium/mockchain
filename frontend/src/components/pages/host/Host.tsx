@@ -18,6 +18,7 @@ import $ from "jquery";
 import CommonLayout from "../template/commonLayout/CommonLayout";
 import Button from "react-bootstrap/esm/Button";
 import { v4 as uuidv4 } from "uuid";
+import Config from "../../../helper/config";
 
 type Props = {};
 type State = {
@@ -74,6 +75,16 @@ export default class Host extends React.Component<Props, State> {
             endTimestamp: (new Date()).toISOString()
         });
         // Put Event
+        fetch(`${Config.api_endpoint}/event`, {
+            method: "POST",
+            mode: "cors",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: body
+        })
+        .then(res => res.json())
+        .then(data => { $("#go-home").trigger("click"); });
     }
 
     render() {
