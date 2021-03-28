@@ -68,7 +68,7 @@ export default class Events extends React.Component<Props, State> {
         return (
             <Template>
                 <CommonLayout>
-                    <Container fluid>
+                    <Container style={{ maxWidth: 820 }} fluid>
                         {/* Header Row (1) */}
                         <Row>
                             <Col>
@@ -104,7 +104,7 @@ export default class Events extends React.Component<Props, State> {
                                                 id={e.id.S}
                                                 header={e.name.S}
                                                 description={e.description.S}
-                                                entryFee={e.entryFee.S}
+                                                entryFee={e.entryFee.N}
                                                 startTimestamp={(new Date()).toISOString()}
                                                 endTimestamp={(new Date()).toISOString()}
                                                 userId={e.userId.S}
