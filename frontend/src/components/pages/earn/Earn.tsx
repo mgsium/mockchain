@@ -62,7 +62,7 @@ export default class Earn extends React.Component<Props, State> {
                             <Col>
                                 <br/>
                                 <p style={{ fontFamily: "Inter, sans-serif", fontSize: "16pt", color: "#666" }}>
-                                    Need more <strong>MTC</strong>? You can earn more by completeing these seasonal activities! <br/>
+                                    Need more <strong>MTC</strong>? You can earn more by completing these seasonal activities! <br/>
                                     (P.S. If you have a board idea, <a href="https://airtable.com/shrYrAmOCJFKjFarM" target="_blank">tell us about it!</a>)
                                 </p>
                                 <br/>

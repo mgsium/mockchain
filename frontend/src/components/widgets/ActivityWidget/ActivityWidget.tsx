@@ -17,7 +17,7 @@ export default class ActivityWidget extends React.Component<Props, State> {
 
     render() {
         return (
-            <Link to={`/activity/${this.props.id}`} className={cx( CStyles.linkStyles )}>
+            <Link to={`/activity?activity_id=${this.props.id}`} className={cx( CStyles.linkStyles )}>
                 <div className={cx( Styles.widget )}>
                     <br/><br/><br/>
                     <h1 style={{ fontWeight: "bold", textAlign: "center", marginBottom: 10, fontSize: "40pt" }}>{this.props.name}</h1>

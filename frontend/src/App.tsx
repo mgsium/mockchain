@@ -3,6 +3,7 @@ import { BrowserRouter, Switch, Route } from "react-router-dom";
 
 import Styles from "./AppStyles";
 import About from "./components/pages/about/About";
+import Activity from "./components/pages/activity/Activity";
 import Earn from "./components/pages/earn/Earn";
 import Events from "./components/pages/events/Events";
 import Host from "./components/pages/host/Host";
@@ -29,6 +30,7 @@ export default class App extends React.Component<Props, State> {
                     <Route path="/host"                 component={ Host }          exact/>
                     <Route path="/about"                component={ About }         exact/>
                     <Route path="/room"                 component={ Room }          exact/>
+                    <Route path="/activity"             component={ Activity }      exact/>
                 </Switch>
             </BrowserRouter>
         )
