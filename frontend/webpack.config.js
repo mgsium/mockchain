@@ -34,7 +34,7 @@ module.exports = {
         new HtmlWebpackPlugin({
             template: "./public/index.html",
             // When using favicons
-            // favicon: "./public/assets/img/ico/favicon.ico"
+            favicon: "./public/assets/img/ico/MockchainLogo.ico"
         })
     ],
     resolve: {
