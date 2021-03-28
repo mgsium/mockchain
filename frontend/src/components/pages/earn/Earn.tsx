@@ -1,5 +1,9 @@
 import React from "react";
 
+import Container from "react-bootstrap/Container";
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
+
 import { cx } from "emotion";
 import Styles from "./EarnStyles";
 import Template from "../template/Template";
@@ -8,6 +12,7 @@ import netlifyIdentity from "netlify-identity-widget";
 import { Link } from "react-router-dom";
 
 import $ from "jquery";
+import CommonLayout from "../template/commonLayout/CommonLayout";
 
 type Props = {};
 type State = {};
@@ -28,7 +33,25 @@ export default class Earn extends React.Component<Props, State> {
     render() {
         return (
             <Template>
-                
+                <CommonLayout>
+                    <Container fluid>
+                        {/* Header Row (1) */}
+                        <Row>
+                            <Col>
+                                <h1>Activities</h1>
+                            </Col>
+                        </Row>
+                        <Row>
+                            <Col>
+                                <br/>
+                                <p style={{ fontFamily: "Inter, sans-serif", fontSize: "16pt", color: "#666" }}>
+                                    Need more <strong>MTC</strong>? You can earn more by completeing these seasonal activities!
+                                </p>
+                                <br/>
+                            </Col>
+                        </Row>
+                    </Container>
+                </CommonLayout>
                 <Link  to="/" hidden>
                     <span id="go-home">Go Home</span>
                 </Link>

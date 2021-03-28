@@ -1,5 +1,7 @@
 import React from "react";
 
+import Container from "react-bootstrap/Container";
+
 import { cx } from "emotion";
 import Styles from "./HostStyles";
 import Template from "../template/Template";
@@ -8,6 +10,7 @@ import netlifyIdentity from "netlify-identity-widget";
 import { Link } from "react-router-dom";
 
 import $ from "jquery";
+import CommonLayout from "../template/commonLayout/CommonLayout";
 
 type Props = {};
 type State = {};
@@ -28,7 +31,11 @@ export default class Host extends React.Component<Props, State> {
     render() {
         return (
             <Template>
-                
+                <CommonLayout>
+                    <Container fluid>
+
+                    </Container>
+                </CommonLayout>
                 <Link  to="/" hidden>
                     <span id="go-home">Go Home</span>
                 </Link>

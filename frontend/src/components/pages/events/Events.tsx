@@ -14,6 +14,8 @@ import { Link } from "react-router-dom";
 import $ from "jquery";
 import CommonLayout from "../template/commonLayout/CommonLayout";
 import PlusBtn from "../../widgets/PlusBtn/PlusBtn";
+import EventWidgetSkeleton from "../../widgets/EventWidget/EventWidgetSkeleton";
+import EventWidget from "../../widgets/EventWidget/EventWidget";
 
 type Props = {};
 type State = {};
@@ -47,10 +49,34 @@ export default class Events extends React.Component<Props, State> {
                                 </span>
                             </Col>
                         </Row>
+                        {/* My Events Row */}
+                        <Row>
+                            <Col style={{ padding: 20 }}>
+                                <h3 style={{ textAlign: "center" }}>You don't have any events yet!</h3>
+                            </Col>
+                        </Row>
+                        <br/>
                         {/* Header Row (2) */}
                         <Row>
                             <Col>
-                                <h1>Events</h1>
+                                <h1>Public Events</h1>
+                            </Col>
+                        </Row>
+                        <br/>
+                        {/* Public Events Row */}
+                        <Row>
+                            <Col>
+                                <EventWidget
+                                    id="test"
+                                    header="Introduction to Organic Chemistry"
+                                    description="Some Random Event about Stuff"
+                                    entryFee={6.03}
+                                    startTimestamp={(new Date()).toISOString()}
+                                    endTimestamp={(new Date()).toISOString()}
+                                    userId="Some Random User"
+                                />
+                                <br/>
+                                <EventWidgetSkeleton/>
                             </Col>
                         </Row>
                     </Container>
