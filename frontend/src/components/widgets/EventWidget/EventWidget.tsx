@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 import { cx } from "emotion";
 import CStyles from "../../ComponentStyles";
@@ -35,9 +36,11 @@ export default class EventWidget extends React.Component<Props, State> {
                     </h5>
                 </div>
                 <hr/>
-                <Button className={cx( CStyles.baseBtn, CStyles.secondaryBtn )} style={{ width: "100%" }}>
-                    Check In for <strong>{this.props.entryFee} MTC</strong>
-                </Button>
+                <Link to={`/room?event_id=${this.props.id}`} className={cx( CStyles.linkStyles )}>
+                    <Button className={cx( CStyles.baseBtn, CStyles.secondaryBtn )} style={{ width: "100%" }}>
+                        Check In for <strong>{this.props.entryFee} MTC</strong>
+                    </Button>
+                </Link>
             </div>
         )
     }

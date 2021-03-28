@@ -7,6 +7,7 @@ import Earn from "./components/pages/earn/Earn";
 import Events from "./components/pages/events/Events";
 import Host from "./components/pages/host/Host";
 import Login from "./components/pages/login/Login";
+import Room from "./components/pages/room/Room";
 
 type State = {};
 type Props = {};
@@ -27,6 +28,7 @@ export default class App extends React.Component<Props, State> {
                     <Route path="/earn"                 component={ Earn }          exact/>
                     <Route path="/host"                 component={ Host }          exact/>
                     <Route path="/about"                component={ About }         exact/>
+                    <Route path="/room"                 component={ Room }          exact/>
                 </Switch>
             </BrowserRouter>
         )
