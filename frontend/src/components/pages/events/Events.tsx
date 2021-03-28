@@ -64,6 +64,10 @@ export default class Events extends React.Component<Props, State> {
         this.setState({ events: this.state.events.concat(data) });
     }
 
+    onlyUnique(value: any, index: number, self: any) {
+        return self.indexOf(value) === index;
+    }
+
     render() {
         return (
             <Template>
@@ -83,7 +87,34 @@ export default class Events extends React.Component<Props, State> {
                         {/* My Events Row */}
                         <Row>
                             <Col style={{ padding: 20 }}>
-                                <h3 style={{ textAlign: "center" }}>You don't have any events yet!</h3>
+                                {
+                                    (() => {
+                                        let events = (!!netlifyIdentity.currentUser() ? this.state.events.filter(e => e.userId.S == netlifyIdentity.currentUser().id) : []);
+                                        events = events.filter(this.onlyUnique);
+                                        console.log(events);
+                                        if (events.length > 0) {
+                                            return (
+                                                events.map(e => (
+                                                    <> 
+                                                        <EventWidget
+                                                            id={e.id.S}
+                                                            header={e.name.S}
+                                                            description={e.description.S}
+                                                            entryFee={e.entryFee.N}
+                                                            startTimestamp={(new Date()).toISOString()}
+                                                            endTimestamp={(new Date()).toISOString()}
+                                                            userId={e.userId.S}
+                                                        />
+                                                        <br/>
+                                                    </>
+                                                    )
+                                                )
+                                            )
+                                        } else {
+                                            return <h3 style={{ textAlign: "center" }}>You don't have any events yet!</h3>;
+                                        }
+                                    })()
+                                }
                             </Col>
                         </Row>
                         <br/>
