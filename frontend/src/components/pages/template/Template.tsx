@@ -78,7 +78,7 @@ export default class Template extends React.Component<Props, State> {
                                     <div className={cx( Styles.userPanel )} onClick={this.openNetlifyIdentity}>
                                         &nbsp;{this.state.user.user_metadata.full_name}&nbsp;
                                     </div>
-                                ) : <NavBtn to="/" isSecondary>Login</NavBtn>
+                                ) : <NavBtn to={window.location.pathname} isSecondary>Login</NavBtn>
                             }
                         </span>
                     </div>
