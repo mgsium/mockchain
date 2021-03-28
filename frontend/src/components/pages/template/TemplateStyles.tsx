@@ -15,7 +15,8 @@ const Styles = {
         background: whitesmoke;
     `,
     navPanel: css`
-        display: inline-block;
+        display: table;
+        margin: 0 auto;
     `,
     linkStyles: css`
         &, &:visited, &:hover, &:active {
@@ -41,6 +42,23 @@ const Styles = {
         &, &:hover {
             background: black;
             color: white;
+        }
+    `,
+    headerStyles: css`
+
+    `,
+    userPanel: css`
+        padding: 10px;
+        font-family: Josefin Sans, sans-serif;
+        font-size: 20pt;
+        border: 1px solid #DCDCDC;
+        padding-top: 15px;
+        border-radius: .7rem;
+        transition: all .25s;
+
+        &:hover {
+            cursor: pointer;
+            background: whitesmoke;
         }
     `
 };

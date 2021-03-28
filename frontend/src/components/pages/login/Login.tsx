@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 import Button from "react-bootstrap/Button";
 
@@ -7,10 +8,28 @@ import CStyles from "../../ComponentStyles";
 import Styles from "./LoginStyles";
 import Template from "../template/Template";
 
+import netlifyIdentity from "netlify-identity-widget";
+import $ from "jquery";
+
 type Props = {};
 type State = {};
 
 export default class Login extends React.Component<Props, State> {
+
+    componentDidMount() {
+        netlifyIdentity.init();
+
+        const user = netlifyIdentity.currentUser();
+        if (user) $("#go-to-events").trigger("click");
+
+        netlifyIdentity.on("login", () => {
+            $("#go-to-events").trigger("click");
+        });
+    }
+
+    openIdentityWidget() {
+        netlifyIdentity.open();
+    }
 
     render() {
         return (
@@ -32,7 +51,11 @@ export default class Login extends React.Component<Props, State> {
                                         Join us on our mission to decentralize education.
                                     </p>
                                 </div>
-                                <Button className={cx( CStyles.baseBtn, CStyles.secondaryBtn )} style={{ marginBottom: 10, marginTop: 10, width: "100%" }}>
+                                <Button 
+                                    className={cx( CStyles.baseBtn, CStyles.secondaryBtn )} 
+                                    style={{ marginBottom: 10, marginTop: 10, width: "100%" }}
+                                    onClick={this.openIdentityWidget}
+                                >
                                     Login
                                 </Button>
                             </div>
@@ -40,6 +63,9 @@ export default class Login extends React.Component<Props, State> {
                         </div>
                     </div>
                 </div>
+                <Link  to="/events" hidden>
+                    <span id="go-to-events">Go to Events</span>
+                </Link>
             </Template>
         )
     }
